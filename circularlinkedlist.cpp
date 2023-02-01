@@ -9,6 +9,15 @@ class Node{
         this->data = data;
         this->next = NULL;
     }
+    
+    ~Node(){
+        int value = this->data;
+        if(this->next = NULL){
+            delete next;
+            next = NULL;
+        }
+        cout<<"value freed is"<<value<<endl;
+    }
 };
 
 void Insert(Node* &tail, int element, int d){
@@ -28,6 +37,22 @@ void Insert(Node* &tail, int element, int d){
     }
 }
 
+void deleteNode(Node* tail, int value){
+    if(tail == NULL){
+        cout<<"List Empty";
+    }
+    else{
+        Node* prev = tail;
+        Node* curr = prev->next;
+        while(curr-> != value){
+            prev = curr;
+            curr = curr->next;
+        }
+        prev->next = curr->next;
+        curr->next = NULL;
+        delete curr;
+    }
+}
 void print(Node* tail){
     Node* temp = tail;
     do{
